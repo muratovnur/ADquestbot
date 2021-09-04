@@ -7,7 +7,8 @@ const UserSchema = new Schema({
     surName: {type: String, required: true},
     role: {type: String, default: "User"},
     department: {type: String, required: true},
-    tasks: {type: Schema.Types.ObjectId}
+    tasks: [{type: Schema.Types.ObjectId, ref: 'Tasks'}],
+    directAssistant: [{type: Schema.Types.ObjectId, ref: 'Users'}]
 })
 
 module.exports = mongoose.model('Users', UserSchema);
